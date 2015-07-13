@@ -6,7 +6,7 @@ import java.math.MathContext
 object VendingMachine {
 
   var balance : Float = 0.0f
-  def display(msg: Any): Unit = println(msg)
+  def display(msg: String): Unit = println(msg)
 
   def insertCoin(coin: Coin): Unit = {
     def increaseBalance(addr: Float): Unit = {

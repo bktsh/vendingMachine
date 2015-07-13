@@ -7,7 +7,7 @@ class VendingMachineTest extends FunSpec {
   
 	val mc = new MathContext(2)
 
-  //Just to avoid unit test dependency and still have float comparison
+  //Just to avoid junit lib dependency and still have float comparison
   def ~=(x: Double, y: Double, precision: Double) = {
     if ((x - y).abs < precision) true else false
   }

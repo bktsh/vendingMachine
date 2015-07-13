@@ -20,27 +20,27 @@ class VendingMachineTest extends FunSpec {
         assert(subject.balance == BigDecimal(0))
       }
 
-      it("should increase sum by 0.25 when a Querter coin is inserted") {
+      it("should increase balance by 0.25 when a Querter coin is inserted") {
         subject.insertCoin(Quarter)
         assert( ~=(subject.balance ,0.25, 0.00001))
       }
       
-      it("should increase sum by 0.1 when a Dime coin is inserted") {
+      it("should increase balance by 0.1 when a Dime coin is inserted") {
         subject.insertCoin(Dime)
         assert( ~=(subject.balance ,0.35, 0.00001))
       }      
 
-     it("should increase sum by 0.05 when a Nickle coin is inserted") {
+     it("should increase balance by 0.05 when a Nickle coin is inserted") {
         subject.insertCoin(Dime)
         assert( ~=(subject.balance ,0.45, 0.00001))
       }      
 
-     it("should increase sum by 0.01 when a Penny coin is inserted") {
+     it("should increase balance by 0.01 when a Penny coin is inserted") {
         subject.insertCoin(Penny)
         assert( ~=(subject.balance ,0.46, 0.00001))
       }
      
-     it("should not increase sum and display message match my error message when a bad coin inserted") {
+     it("should not increase balance and display message match my error message when a bad coin inserted") {
         subject.insertCoin(Other)
         assert( ~=(subject.balance ,0.46, 0.00001))
       }      

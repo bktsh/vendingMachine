@@ -12,7 +12,7 @@ object VendingMachine {
       case f: Float  => display(s"Your current balance is: ${f}")
       case s: String => display(s)
     }
-    def display(msg: Any): Unit = println(msg)
+    def display(msg: String): Unit = println(msg)
   }
 
   object CashMachine extends Observable {
@@ -37,11 +37,10 @@ object VendingMachine {
 
   val display = Display
   val cashier = CashMachine
+  def balance = CashMachine.balance
   val init = cashier.addObserver(display)
 
   def acceptCoin(coin: Coin) = {
     cashier.acceptCoin(coin)
   }
-  def balance = cashier.balance
-
 }

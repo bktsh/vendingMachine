@@ -12,8 +12,8 @@ class VendingMachineTest extends FunSpec {
     if ((x - y).abs < precision) true else false
   }
 
-  
-  describe("A Vending Machine") {
+
+  describe("A Vending Machine Accept Cash Feature") {
     val subject = VendingMachine
     
     it("should have balance of 0 when it starts ") {
@@ -21,30 +21,27 @@ class VendingMachineTest extends FunSpec {
       }
 
       it("should increase balance by 0.25 when a Querter coin is inserted") {
-        subject.insertCoin(Quarter)
+        subject.acceptCoin(Quarter)
         assert( ~=(subject.balance ,0.25, 0.00001))
       }
       
       it("should increase balance by 0.1 when a Dime coin is inserted") {
-        subject.insertCoin(Dime)
+        subject.acceptCoin(Dime)
         assert( ~=(subject.balance ,0.35, 0.00001))
       }      
 
      it("should increase balance by 0.05 when a Nickle coin is inserted") {
-        subject.insertCoin(Dime)
+        subject.acceptCoin(Dime)
         assert( ~=(subject.balance ,0.45, 0.00001))
       }      
 
-     it("should increase balance by 0.01 when a Penny coin is inserted") {
-        subject.insertCoin(Penny)
-        assert( ~=(subject.balance ,0.46, 0.00001))
-      }
-     
      it("should not increase balance and display message match my error message when a bad coin inserted") {
-        subject.insertCoin(Other)
-        assert( ~=(subject.balance ,0.46, 0.00001))
-      }      
-     
+        subject.acceptCoin(Other)
+        assert( ~=(subject.balance ,0.45, 0.00001))
+      }           
     }
+  
+   
+
 
 }
